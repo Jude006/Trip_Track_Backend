@@ -30,9 +30,7 @@ app.use(cors({
 app.use(express.json());
 app.use(passport.initialize());
 
-app.get('/', (req,res)=>{
-  return res.json({message:"Welcome to trip track backend"})
-})
+
 
 
 const ensureUploadDirs = ()  => {
@@ -92,6 +90,11 @@ const avatarUpload = multer({
   limits: { fileSize: 2 * 1024 * 1024 }, 
   fileFilter
 });    
+
+app.get('/', (req, res) => {
+  return res.json({message:'Welcome to trip track app'})
+});
+
 
 app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
 app.use('/api/auth', authRoutes);
