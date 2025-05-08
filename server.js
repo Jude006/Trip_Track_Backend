@@ -23,7 +23,7 @@ const Expense = require('./models/Expense');
 connectDb(); 
 
 app.use(cors({
-  origin: [ 'http://localhost:5173','https://your-frontend-url.vercel.app'],
+  origin: [ 'http://localhost:5173','https://trip-track-frontend.vercel.app'],
   credentials: true
 }));
 
