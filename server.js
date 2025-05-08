@@ -23,12 +23,17 @@ const Expense = require('./models/Expense');
 connectDb(); 
 
 app.use(cors({
-  origin:  'http://localhost:5173',
+  origin: [ 'http://localhost:5173','https://your-frontend-url.vercel.app'],
   credentials: true
 }));
 
 app.use(express.json());
 app.use(passport.initialize());
+
+app.get('/', (req,res)=>{
+  return res.json({message:"Welcome to trip track backend"})
+})
+
 
 const ensureUploadDirs = ()  => {
   const dirs = [
